@@ -1,0 +1,57 @@
+class car:
+    # Two underscore characters are required before and after 'init' to define the constructor
+    # Self is the first parameter in the parameter list every method
+    def __init__(self, n, e):   #constructor
+        self.__VehicleID = n
+        self.__Registration = ""
+        self.__DateOfRegistration = None
+        self.__EngineSize = e
+        self.__PurchasePrice = 0.00 #Two underscore characters before an attribute name signify it  is private
+    def SetPurchasePrice(self, p):
+        self.__PurchasePrice = p
+    def SetRegistration(self, r):
+        self.__Registration = r
+    def SetDateOfRegistration(self, d):
+        self.__DateOfRegistration = d
+
+    def GetVehicleID(self):
+        return(self.__VehicleID)
+    def GetRegistration(self):
+        return(self.__Registration)
+    def GetDateOfRegistration(self):
+        return(self.__DateOfRegistration)
+    def GetEngineSize(self):
+        return(self.__EngineSize)
+    def GetPurchasePrice(self):
+        return(self.__PurchasePrice)
+
+thiscar= car("ABC1234", 2500)
+thiscar.SetPurchasePrice(12000)
+thiscar.PurchasePrice = 12000
+print(thiscar.GetVehicleID())
+print(thiscar.PurchasePrice)
+
+largesteng = 0
+highestprice = 0
+totalprice = 0
+for i in range(5):
+    caratt1= int(input("Enter VehicleID: "))
+    caratt2= int(input("Enter the engine size: "))
+    currentcar = car(caratt1, caratt2)
+    currentcar.SetPurchasePrice(int(input("Set Purchase Price: ")))
+    currentcar.SetRegistration(int(input("Set Registration Number: ")))
+    currentcar.SetDateOfRegistration(input("Set the Date of Registration: "))
+    if highestprice < currentcar.GetPurchasePrice():
+        highestprice = currentcar.GetPurchasePrice()
+    if largesteng < currentcar.GetEngineSize():
+        largesteng = currentcar.GetEngineSize()
+    totalprice = totalprice + currentcar.GetEngineSize()
+    print("Toyota: ", currentcar.GetVehicleID())
+    print("Registration Number: ", currentcar.GetRegistration())
+    print("Date of Registration: ", currentcar.GetDateOfRegistration())
+    print("Engine Size: ", currentcar.GetEngineSize())
+    print("Purchase Price: ", currentcar.GetPurchasePrice())
+avgprice = totalprice / 5
+print(highestprice)
+print(avgprice)
+print(largesteng)
