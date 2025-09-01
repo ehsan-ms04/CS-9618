@@ -41,17 +41,30 @@ for i in range(5):
     currentcar.SetPurchasePrice(int(input("Set Purchase Price: ")))
     currentcar.SetRegistration(int(input("Set Registration Number: ")))
     currentcar.SetDateOfRegistration(input("Set the Date of Registration: "))
+
     if highestprice < currentcar.GetPurchasePrice():
         highestprice = currentcar.GetPurchasePrice()
     if largesteng < currentcar.GetEngineSize():
         largesteng = currentcar.GetEngineSize()
+    
     totalprice = totalprice + currentcar.GetEngineSize()
     print("Toyota: ", currentcar.GetVehicleID())
     print("Registration Number: ", currentcar.GetRegistration())
     print("Date of Registration: ", currentcar.GetDateOfRegistration())
     print("Engine Size: ", currentcar.GetEngineSize())
     print("Purchase Price: ", currentcar.GetPurchasePrice())
+
 avgprice = totalprice / 5
 print(highestprice)
 print(avgprice)
 print(largesteng)
+
+carjobs1 = [Car("",0) for i in range (5)]
+carobjs2= []
+car1= Car("Abcd",3455)
+for i in range (2):
+    caratt1= int(input("Enter VehicleID: "))
+    caratt2= int(input("Enter the engine size: "))
+    carobjs2.append(Car(caratt1,caratt2))
+for i in range (len(carobjs2)):
+    print("")
